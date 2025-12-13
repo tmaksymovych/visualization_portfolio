@@ -49,22 +49,30 @@ The project demonstrates the "Eras of Dominance" in F1, showing how teams like F
 * **Language:** Python 3.9+
 * **Libraries:**
     * `pandas` (Data Manipulation & Cleaning)
+    * `geopandas` (extends the datatypes used by pandas to allow spatial operations on geometric types)
     * `altair` (Declarative Statistical Visualization)
-* **Format:** HTML (Visualizations exported as JSON/HTML)
+    * `matplotlib` (plotting and data visualization library)
 
 ---
 
 ## 📂 Repository Structure
 
 ```text
-├── index.html            # Main Portfolio Entry Point
-├── assets/               # CSS, JS, and Images
 ├── data/                 # Raw CSV datasets
-│   ├── results.csv
-│   ├── races.csv
-│   ├── constructors.csv
+│   ├── circuits.csv
+│   ├── constructor_results.csv
+│   ├── cinstructor_standings.csv
+│   ├── costructors.csv
+│   ├── driver_standings.csv
 │   ├── drivers.csv
-│   └── circuits.csv
-├── notebooks/            # Jupyter Notebooks containing the Python code
-│   └── visualization_generation.ipynb
+│   ├── lap_times.csv
+│   ├── pit_stops.csv
+│   ├── qualifying.csv
+│   ├── races.csv
+|   ├── results.csv
+│   ├── seasons.csv
+│   ├── sprint_results.csv
+│   └── status.csv
+|   
+├── main.ipynb           # Jupyter Notebooks containing the Python code
 └── README.md             # Project Documentation
