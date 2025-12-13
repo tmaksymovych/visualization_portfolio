@@ -75,4 +75,5 @@ The project demonstrates the "Eras of Dominance" in F1, showing how teams like F
 │   └── status.csv
 |   
 ├── main.ipynb           # Jupyter Notebooks containing the Python code
-└── README.md             # Project Documentation
+├── requirements.txt     # all necessary libraries with versions
+└── README.md            # Project Documentation
