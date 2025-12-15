@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Portfolio - [Your Name]</title>
+
+    <!-- Pico.css for clean, minimal styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+    <!-- Vega-Lite library for interactive visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        /* KSE Brand: Override Pico.css with official colors */
+        :root {
+            --pico-primary: rgb(0, 57, 100); /* KSE Dark Midnight Blue */
+            --pico-primary-hover: rgb(0, 77, 130);
+        }
+
+        /* KSE Typography */
+        body { line-height: 1.3; }
+        h1, h2, h3, h4, h5, h6 { line-height: 1.15; }
+
+        /* Visualization containers */
+        article > div { width: 100%; min-height: 400px; }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        
+        <!-- ============================================
+             GETTING STARTED - READ THIS FIRST!
+             ============================================
+
+             HOW TO USE THIS TEMPLATE:
+             1. Replace all [placeholder text] in square brackets with your content
+             2. Copy visualization sections to add more (you need minimum 5)
+             3. Test by opening this file in your browser
+             4. Delete instructional comments before submitting
+
+             📖 FOR COMPLETE REQUIREMENTS: See ASSIGNMENT.md
+
+             Quick checklist:
+             - Replace [Your Name], video link, and introduction theme
+             - Add 5+ visualizations with context, design decisions, insights, sources
+             - Include unified theme connecting all visualizations
+             - Embed your 5-7 minute video presentation link
+
+             ============================================ -->
+
+        <!-- ============================================
+             HEADER SECTION - Replace with your information
+             ============================================ -->
+        <hgroup>
+            <h1>Maksymovych Tymur</h1>
+            <p>Data Visualization Portfolio</p>
+            <p>Principles of Data Visualization | KSE | Fall 2025</p>
+        </hgroup>
+
+        <!-- ============================================
+             VIDEO PRESENTATION - Add your video link
+             Required: 5-7 minutes, covers theme + key visualizations
+             See ASSIGNMENT.md for detailed video requirements
+             ============================================ -->
+        <article>
+            <header>
+                <h2>📹 Video Presentation</h2>
+            </header>
+            <p>
+                <strong>Watch my portfolio walkthrough (5-7 minutes):</strong><br>
+                <a href="[YOUR VIDEO LINK HERE]" target="_blank" role="button">
+                    ▶️ View Video Presentation
+                </a>
+            </p>
+            <p>
+                <small>
+                    <em>Note: If using Google Drive, make sure to enable external access to your video!</em>
+                </small>
+            </p>
+        </article>
+
+        <!-- ============================================
+             INTRODUCTION - Explain your unified THEME (3-5 sentences)
+
+             Your theme should connect all visualizations around a common
+             question or domain. See ASSIGNMENT.md for examples.
+             ============================================ -->
+        <article>
+            <header>
+                <h2>Introduction</h2>
+            </header>
+            <p>
+                This portfolio explores the 74-year history of Formula 1, analyzing how the sport has evolved from a niche European championship into a global spectacle.
+                Through five interactive visualizations, we examine the geographical expansion of the circuits and the dynastic battles between the sport's greatest constructors and drivers.
+
+                The project demonstrates the "Eras of Dominance" in F1, showing how teams like Ferrari, McLaren, and Mercedes have risen and fallen over decades.
+            </p>
+        </article>
+
+        <!-- ============================================
+             VISUALIZATION 1: VEGA-LITE EXAMPLE
+
+             Copy this <article> block to add more visualizations.
+             For other viz types, see examples below (Tableau, R/ggplot2, images).
+             See ASSIGNMENT.md for quality checklist requirements.
+             ============================================ -->
+        <article>
+            <header>
+                <h2>1.1  Formula one Circuits</h2>
+            </header>
+
+            <!-- CONTEXT & QUESTION (1-2 sentences) -->
+            <h3>Context & Question</h3>
+            <p>
+                This visualization shows all Formula 1 tracks that have ever existed throughout the history of the championship (1950-2024).
+                Most importantly, it shows a historical shift from a Euro-centric series into a true global spectacle.
+                It is important because this expansion reflects the commercial and political strategy of the sport,
+                moving into new markets in the Middle East, Asia, and the Americas over the last 74 years.
+            </p>
+
+            <!-- DESIGN DECISIONS (2-3 sentences) -->
+            <h3>Design Decisions</h3>
+            <p>
+                Mercanter projection was chosen because it is the easiest to interpret for a global map,
+                since the main goal is to show world distribution of the tracks.
+            </p>
+
+            <!-- THE VISUALIZATION -->
+            <div id="vis1"></div>
+
+            <script type="text/javascript">
+                vegaEmbed('#vis1', 'f1_circuits_map.json', { "actions": false })
+                    .catch(console.error);
+            </script>
+
+                <!-- // This line embeds the visualization - don't change this
+                vegaEmbed('#vis1', spec1, { actions: false }); -->
+            </script>
+
+            <!-- KEY INSIGHTS (2-3 sentences) -->
+            <h3>Key Insights</h3>
+            <p>
+                The map reveals a dense cluster of large, dark-colored bubbles in Europe (e.g., Monza, Silverstone, Spa). This confirms that despite recent global expansion, the historical core and the majority of races hosted remain deeply rooted in Europe
+            </p>
+
+            <!-- DATA SOURCE -->
+            <footer>
+                <strong>Data Source:</strong>
+                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2023"
+                   target="_blank">
+                    Formula 1 World Championship 1950-2023 (Kaggle)</a>
+            </footer>
+        </article>
+
+        <!-- ============================================
+             VISUALIZATION 2: TABLEAU PUBLIC EXAMPLE
+
+             Publish to YOUR Tableau Public account (required).
+             Get embed code and paste below.
+             ============================================ -->
+        <article>
+            <header>
+                <h2>1.2  Formula one European Circuits</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>
+                While the previous map shows global distribution,
+                this one fails to capture the density of the sport's heartland,
+                Europe — the "spiritual home" of Formula 1.
+                This visualization zooms in to resolve the "overplotting" issue of the global
+                view and examine the specific geography of the sport's heartland.
+            </p>
+
+            <h3>Design Decisions</h3>
+            <p>
+                Focused Geospatial Map centered specifically on
+                coordinates [15, 53] (Central Europe) with a high zoom scale of 600.
+                This allows us to clearly see the dense cluster of circuits
+            </p>
+
+            <div id="vis2"></div>
+            <script type="text/javascript">
+                 
+                vegaEmbed('#vis2', 'f1_europe_circuits_map.json', { "actions": false })
+                    .catch(console.error);
+            </script>
+            
+
+            <h3>Key Insights</h3>
+            <p>
+                The visualization confirms that F1’s historical center of
+                gravity lies firmly in Western Europe. We observe a strong correlation
+                between geography and longevity: UK, Germany, Italy, Belgium, Netherlands and Monaco
+                hosts the largest bubbles, representing circuits with 50+ races
+            </p>
+
+            <footer>
+                <strong>Data Source:</strong>
+                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2023"
+                   target="_blank">
+                    Formula 1 World Championship 1950-2023 (Kaggle)</a>
+            </footer>
+        </article>
+
+        <!-- ============================================
+             VISUALIZATION 3: R (ggplot2) EXAMPLE
+             External library example - export as image
+             ============================================ -->
+        <article>
+            <header>
+                <h2>3  The Eras of Dominance</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>
+                Formula 1 is defined by dynasties. <strong>How has the balance of power
+                shifted between manufacturers over the decades?</strong> 
+                This visualization moves beyond total counts to show the "market share" of victories
+                in every single season.
+            </p>
+
+            <h3>Design Decisions</h3>
+            <p>
+                I used a <strong>Normalized Stacked Area Chart (Streamgraph)</strong>.
+                By normalizing the Y-axis to 100%. 
+                This allows for a fair comparison of dominance.
+                I applied the <strong>authentic team livery colors</strong> 
+                to make the eras instantly recognizable to fans
+                (e.g., the "Red Era" of Schumacher, the "Silver/Teal Era" of Hamilton).
+            </p>
+
+            <!-- R CODE BLOCK -->
+            <details>
+                <summary><strong>📝 Click to view R code</strong></summary>
+                <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>install.packages("ggplot2")
+library(ggplot2)
+
+data <- read.csv('assets/city-population.csv')
+
+ggplot(data, aes(x = Year, y = population,
+                 color = Entity)) + geom_line()</code></pre>
+            </details>
+
+            <!-- STATIC IMAGE -->
+            <!-- ==========================================
+                 Export as PNG/SVG, save in assets folder.
+                 Include image file in your ZIP.
+                 ========================================== -->
+
+            <img src="assets/ggplot-example.png"
+                 alt="City population trends over time created with ggplot2"
+                 style="max-width: 100%; height: auto; border: 1px solid #ddd;">
+
+            <h3>Key Insights</h3>
+            <p>
+                [When using your own data: Describe the patterns, trends, or outliers
+                you discovered. What should viewers take away from this visualization?]
+            </p>
+
+            <footer>
+                <strong>Data Source:</strong> assets/city-population.csv
+            </footer>
+        </article>
+
+        <!-- ============================================
+             VISUALIZATION 4: STATIC IMAGE EXAMPLE (TEMPLATE)
+             For Python/R/other tools - export as image
+             ============================================ -->
+        <article>
+            <header>
+                <h2>4  Constructor Leaderboard</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>
+                [What question does this visualization address?]
+            </p>
+
+            <h3>Design Decisions</h3>
+            <p>
+                [Explain your design choices. What tool did you use
+                to create this? Why this visualization approach?]
+            </p>
+
+            <!-- STATIC IMAGE -->
+            <!-- ==========================================
+                 Export as PNG/SVG, save in same folder.
+                 Include image file in your ZIP.
+                 ========================================== -->
+
+            <img src="[your-image-filename.png]"
+                 alt="[Brief description of visualization]"
+                 style="max-width: 100%; height: auto; border: 1px solid #ddd;">
+
+            <h3>Key Insights</h3>
+            <p>
+                [What did you discover?]
+            </p>
+
+            <footer>
+                <strong>Data Source:</strong> [Dataset information and URL]
+            </footer>
+        </article>
+
+        <!-- ============================================
+             VISUALIZATION 5 - Copy a template above
+             Minimum 5 visualizations required!
+             ============================================ -->
+        <article>
+            <header>
+                <h2>5. [Title of Your Fifth Visualization]</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>[Your text here]</p>
+
+            <h3>Design Decisions</h3>
+            <p>[Your text here]</p>
+
+            <!-- Add your visualization here (copy from examples above) -->
+            <div style="border: 2px dashed #ccc; padding: 40px; text-align: center;">
+                <p><strong>Add your visualization here</strong></p>
+                <p>Copy one of the templates above (Vega-Lite, Tableau, R/Python, or Image)</p>
+            </div>
+
+            <h3>Key Insights</h3>
+            <p>[Your text here]</p>
+
+            <footer>
+                <strong>Data Source:</strong> [Dataset information]
+            </footer>
+        </article>
+
+        <!-- ============================================
+             VISUALIZATION 6 - Copy a template above
+             This is the minimum. You can add more!
+             ============================================ -->
+        <article>
+            <header>
+                <h2>6. [Title of Your Sixth Visualization]</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>[Your text here]</p>
+
+            <h3>Design Decisions</h3>
+            <p>[Your text here]</p>
+
+            <!-- Add your visualization here -->
+            <div style="border: 2px dashed #ccc; padding: 40px; text-align: center;">
+                <p><strong>Add your visualization here</strong></p>
+            </div>
+
+            <h3>Key Insights</h3>
+            <p>[Your text here]</p>
+
+            <footer>
+                <strong>Data Source:</strong> [Dataset information]
+            </footer>
+        </article>
+
+        <!-- ============================================
+             ADD MORE VISUALIZATIONS: Copy an <article> block above
+             ============================================ -->
+
+        <!-- ============================================
+             REFLECTION (Optional but recommended)
+             ============================================ -->
+        <article>
+            <header>
+                <h2>Reflection</h2>
+            </header>
+            <p>
+                [OPTIONAL: What did you learn through creating this portfolio?
+                How did your understanding of data visualization principles evolve?
+                What challenges did you face and how did you overcome them? What
+                would you do differently next time?]
+            </p>
+        </article>
+
+        <!-- ============================================
+             AI USAGE DOCUMENTATION (If applicable)
+             See ASSIGNMENT.md for AI policy requirements
+             ============================================ -->
+        <article>
+            <header>
+                <h2>AI Usage Documentation</h2>
+            </header>
+            <p>
+                [IF YOU USED AI: Document what you used it for and include shared conversation links or PDFs.
+                Create an AI_Documentation folder in your ZIP with these files.
+                IF YOU DID NOT USE AI: Delete this entire AI Usage Documentation section.]
+            </p>
+            <p>
+                <small><em>Remember: All AI usage must be documented. Include links to shared conversations
+                or PDF exports in a folder called AI_Documentation in your ZIP archive.</em></small>
+            </p>
+        </article>
+
+        <!-- ============================================
+             FOOTER
+             ============================================ -->
+        <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+            <p>Created by [Your Name] | Principles of Data Visualization | KSE Fall 2025</p>
+            <p>Last updated: [Date]</p>
+        </footer>
+
+    </main>
+
+    <!-- ============================================
+         BEFORE SUBMITTING:
+
+         ✓ All [placeholders] replaced with your content
+         ✓ Minimum 5 visualizations included
+         ✓ Video link working and embedded
+         ✓ Introduction explains unified theme (3-5 sentences)
+         ✓ Each viz has: Context, Design, Insights, Source
+         ✓ ZIP named: Portfolio_[LastName]_[FirstName].zip
+         ✓ All datasets and AI documentation included in ZIP
+
+         📋 Complete checklist in ASSIGNMENT.md
+
+         DELETE THIS COMMENT BLOCK BEFORE SUBMITTING!
+         ============================================ -->
+
+</body>
+</html>
