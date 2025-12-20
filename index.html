@@ -96,42 +96,38 @@
             </header>
             <p>
                 This portfolio explores the 74-year history of Formula 1, analyzing how the sport has evolved from a niche European championship into a global spectacle.
-                Through five interactive visualizations, we examine the geographical expansion of the circuits and the dynastic battles between the sport's greatest constructors and drivers.
-
-                The project demonstrates the "Eras of Dominance" in F1, showing how teams like Ferrari, McLaren, and Mercedes have risen and fallen over decades.
+                Through six visualizations, we examine the geographical expansion of the circuits, the dynastic battles between the sport's greatest constructors, and the career trajectories of its legendary drivers.
+                The project demonstrates "how" they won - whether through dominance of the grid or longevity in age.
             </p>
         </article>
-
-        <!-- ============================================
-             VISUALIZATION 1: VEGA-LITE EXAMPLE
-
-             Copy this <article> block to add more visualizations.
-             For other viz types, see examples below (Tableau, R/ggplot2, images).
-             See ASSIGNMENT.md for quality checklist requirements.
-             ============================================ -->
+        
         <article>
             <header>
-                <h2>1.1  Formula one Circuits</h2>
+                <h2>1).  Formula one Circuits</h2>
             </header>
 
             <!-- CONTEXT & QUESTION (1-2 sentences) -->
             <h3>Context & Question</h3>
             <p>
                 This visualization shows all Formula 1 tracks that have ever existed throughout the history of the championship (1950-2024).
-                Most importantly, it shows a historical shift from a Euro-centric series into a true global spectacle.
-                It is important because this expansion reflects the commercial and political strategy of the sport,
-                moving into new markets in the Middle East, Asia, and the Americas over the last 74 years.
+                Most importantly, it shows the historical transition from a predominantly Eurocentric series to a truly global spectacle.
+                This is important because this expansion reflects the commercial and political strategy of the sport,
+                which has entered new markets in the Middle East, Asia, and America over the past 74 years.
+
             </p>
 
             <!-- DESIGN DECISIONS (2-3 sentences) -->
             <h3>Design Decisions</h3>
             <p>
-                Mercanter projection was chosen because it is the easiest to interpret for a global map,
-                since the main goal is to show world distribution of the tracks.
+                The <strong>Mercator projection</strong> was chosen because it is the easiest to interpret
+                the main purpose of this visualization,
+                which is to show the distribution of tracks around the world.
+                The size of the circles depends on the number of races held,
+                which allows you to instantly distinguish historic tracks from temporary racetracks.
             </p>
 
             <!-- THE VISUALIZATION -->
-            <div id="vis1"></div>
+            <div id="vis1" style="display: flex; justify-content: center;"></div>
 
             <script type="text/javascript">
                 vegaEmbed('#vis1', 'f1_circuits_map.json', { "actions": false })
@@ -140,20 +136,22 @@
 
                 <!-- // This line embeds the visualization - don't change this
                 vegaEmbed('#vis1', spec1, { actions: false }); -->
-            </script>
+
 
             <!-- KEY INSIGHTS (2-3 sentences) -->
             <h3>Key Insights</h3>
             <p>
-                The map reveals a dense cluster of large, dark-colored bubbles in Europe (e.g., Monza, Silverstone, Spa). This confirms that despite recent global expansion, the historical core and the majority of races hosted remain deeply rooted in Europe
+                The map shows a dense cluster of large dark bubbles in Europe (e.g., Monza, Silverstone, Spa).
+                This confirms that, despite recent global expansion, the historical core and most of the races held
+                remain deeply rooted in Europe.
             </p>
 
             <!-- DATA SOURCE -->
             <footer>
                 <strong>Data Source:</strong>
-                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2023"
+                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020"
                    target="_blank">
-                    Formula 1 World Championship 1950-2023 (Kaggle)</a>
+                    Formula 1 World Championship 1950-2024 (Kaggle)</a>
             </footer>
         </article>
 
@@ -165,26 +163,26 @@
              ============================================ -->
         <article>
             <header>
-                <h2>1.2  Formula one European Circuits</h2>
+                <h2>2).  Formula one European Circuits</h2>
             </header>
 
             <h3>Context & Question</h3>
             <p>
                 While the previous map shows global distribution,
                 this one fails to capture the density of the sport's heartland,
-                Europe — the "spiritual home" of Formula 1.
+                Europe - the "spiritual home" of Formula 1.
                 This visualization zooms in to resolve the "overplotting" issue of the global
                 view and examine the specific geography of the sport's heartland.
             </p>
 
             <h3>Design Decisions</h3>
             <p>
-                Focused Geospatial Map centered specifically on
-                coordinates [15, 53] (Central Europe) with a high zoom scale of 600.
-                This allows us to clearly see the dense cluster of circuits
+                I used a <strong>Focused Geospatial Map</strong> centered specifically on coordinates [15, 53] (Central Europe)
+                with a high zoom scale to remove empty parts of the map. This allows us to clearly see the dense cluster of
+                circuits that would otherwise overlap on a world map.
             </p>
 
-            <div id="vis2"></div>
+             <div id="vis2"></div>
             <script type="text/javascript">
                  
                 vegaEmbed('#vis2', 'f1_europe_circuits_map.json', { "actions": false })
@@ -195,34 +193,30 @@
             <h3>Key Insights</h3>
             <p>
                 The visualization confirms that F1’s historical center of
-                gravity lies firmly in Western Europe. We observe a strong correlation
+                gravity lies in Western Europe. We observe a strong correlation
                 between geography and longevity: UK, Germany, Italy, Belgium, Netherlands and Monaco
                 hosts the largest bubbles, representing circuits with 50+ races
             </p>
 
             <footer>
                 <strong>Data Source:</strong>
-                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2023"
+                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020"
                    target="_blank">
-                    Formula 1 World Championship 1950-2023 (Kaggle)</a>
+                    Formula 1 World Championship 1950-2024 (Kaggle)</a>
             </footer>
         </article>
 
-        <!-- ============================================
-             VISUALIZATION 3: R (ggplot2) EXAMPLE
-             External library example - export as image
-             ============================================ -->
         <article>
             <header>
-                <h2>3  The Eras of Dominance</h2>
+                <h2>3). The Eras of Dominance</h2>
             </header>
 
             <h3>Context & Question</h3>
             <p>
-                Formula 1 is defined by dynasties. <strong>How has the balance of power
-                shifted between manufacturers over the decades?</strong> 
-                This visualization moves beyond total counts to show the "market share" of victories
-                in every single season.
+                Formula 1 is defined by dynasties.<strong> How has the balance of power shifted
+                between the sport's greatest constructors over time?</strong>
+                This visualization tracks the annual win percentages of the top 7
+                most successful teams from 1950 to 2024, revealing distinct eras of dominance.
             </p>
 
             <h3>Design Decisions</h3>
@@ -231,42 +225,35 @@
                 By normalizing the Y-axis to 100%. 
                 This allows for a fair comparison of dominance.
                 I applied the <strong>authentic team livery colors</strong> 
-                to make the eras instantly recognizable to fans
-                (e.g., the "Red Era" of Schumacher, the "Silver/Teal Era" of Hamilton).
+                to make the eras instantly recognizable to fans.
+
             </p>
 
-            <!-- R CODE BLOCK -->
-            <details>
-                <summary><strong>📝 Click to view R code</strong></summary>
-                <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>install.packages("ggplot2")
-library(ggplot2)
-
-data <- read.csv('assets/city-population.csv')
-
-ggplot(data, aes(x = Year, y = population,
-                 color = Entity)) + geom_line()</code></pre>
-            </details>
-
-            <!-- STATIC IMAGE -->
-            <!-- ==========================================
-                 Export as PNG/SVG, save in assets folder.
-                 Include image file in your ZIP.
-                 ========================================== -->
-
-            <img src="assets/ggplot-example.png"
-                 alt="City population trends over time created with ggplot2"
-                 style="max-width: 100%; height: auto; border: 1px solid #ddd;">
+            <div id="vis3" style="display: flex; justify-content: center;"></div>
+            <script type="text/javascript">
+                 
+                vegaEmbed('#vis3', "top_7_constructors_by_wins.json", { "actions": false, "render":"svg" })
+                    .catch(console.error);
+            </script>
 
             <h3>Key Insights</h3>
             <p>
-                [When using your own data: Describe the patterns, trends, or outliers
-                you discovered. What should viewers take away from this visualization?]
+                The chart reveals distinct eras of dominance. The very beginning of championship in 1950
+                was dominated by Ferrari (red). Later, in mid 70s we can see emerging McLaren (orange)
+                and Renault (yellow) as a new compatitrors.Also, since around the beginning of 2010,
+                we have seen Mercedes dominate after their return to F1 and their rivalry with Red Bull.
+                During <em>Mercedes era</em>, other teams have experienced stagnation.
+
             </p>
 
             <footer>
-                <strong>Data Source:</strong> assets/city-population.csv
+                <strong>Data Source:</strong>
+                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020"
+                   target="_blank">
+                    Formula 1 World Championship 1950-2024 (Kaggle)</a>
             </footer>
         </article>
+
 
         <!-- ============================================
              VISUALIZATION 4: STATIC IMAGE EXAMPLE (TEMPLATE)
@@ -274,37 +261,91 @@ ggplot(data, aes(x = Year, y = population,
              ============================================ -->
         <article>
             <header>
-                <h2>4  Constructor Leaderboard</h2>
+                <h2>4). History of Dominance: The Greatest Drivers</h2>
             </header>
 
             <h3>Context & Question</h3>
             <p>
-                [What question does this visualization address?]
+                While all teams have always tried to create the most technologically advanced car,
+                the dilemma of the best driver has always remained relevant.
+                After all, no matter how good a car engineers create, without a good driver it is nothing.
+                So, who is the greatest of all time (GOAT) in the history of this fabulous championship?
             </p>
 
             <h3>Design Decisions</h3>
             <p>
-                [Explain your design choices. What tool did you use
-                to create this? Why this visualization approach?]
+                I used a <strong>Multi-Series Line Chart</strong> to show the accumulation of wins over time.
+                I also used authentic driver colors to make the lines look familiar to peaple who follow F1.
+                Unlike a bar chart, the <strong>slope of the line</strong> reveals the <em>rate</em> of dominance. 
+                A steeper line (like Schumacher in 2004 or Verstappen currently) indicates a period of crushing superiority, 
+                while a flatter line shows a competitive battle.
             </p>
 
-            <!-- STATIC IMAGE -->
-            <!-- ==========================================
-                 Export as PNG/SVG, save in same folder.
-                 Include image file in your ZIP.
-                 ========================================== -->
-
-            <img src="[your-image-filename.png]"
-                 alt="[Brief description of visualization]"
-                 style="max-width: 100%; height: auto; border: 1px solid #ddd;">
+            <div id="vis4" ></div>
+            <script type="text/javascript">
+                // MAKE SURE THIS MATCHES YOUR FILENAME
+                vegaEmbed('#vis4', "top_5_drivers_wins_over_time.json", { "actions": false, "renderer": "svg" })
+                    .catch(console.error);
+            </script>
 
             <h3>Key Insights</h3>
             <p>
-                [What did you discover?]
+                <strong>1. The Schumacher Slope:</strong> You can clearly see the exponential rise of Michael Schumacher (Red) between 2000 and 2004. The line goes nearly vertical, visualizing one of the most oppressive periods of dominance in sports history.
+            </p>
+            <p>
+                <strong>2. Hamilton's Longevity:</strong> Lewis Hamilton's curve extends longer and higher than anyone else's. His rise is relentless, overtaking Schumacher's previous record of 91 wins (once thought untouchable) and pushing the barrier beyond 100.
+            </p>
+            <p>
+                <strong>3. The New Era:</strong> Max Verstappen's (Pink) line is currently the steepest, indicating a new era of dominance. If he maintains this trajectory, he could challenge Hamilton's record within the next few years.
             </p>
 
             <footer>
-                <strong>Data Source:</strong> [Dataset information and URL]
+                <strong>Data Source:</strong> Ergast API / Kaggle
+            </footer>
+        </article>
+        
+        
+        
+        <article>
+            <header>
+                <h2>5). The Age of Victory</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>
+                When do Formula 1 drivers reach their peak? While the previous chart focused on the constructors,
+                this visualization analyzes the human element. It addresses whether youth and reaction speed are more valuable than experience.
+                This is important for understanding the changing demographics of the sport.
+            </p>
+
+            <h3>Design Decisions</h3>
+            <p>
+                I chose a <strong>histogram</strong> with column sizes of 1 year to preserve detailed information about the age distribution.
+                I visualized the columns in <strong>gold</strong> and overlaid a red dotted line representing the average age.
+                This allows viewers to immediately see that, although “young” winners attract media attention,
+                the statistical average age is actually much higher, which reinforces the distribution around experience rather than pure youth.
+            </p>
+
+            <div id="vis5" ></div>
+            <script type="text/javascript">
+                 
+                vegaEmbed('#vis5', "f1_winners_age_distribution.json", { "actions": false, "render":"svg" })
+                    .catch(console.error);
+            </script>
+            
+            <h3>Key Insights</h3>
+            <p>
+                The graph shows a clear distribution, with a sharp increase in victories starting at age 23 and peaking
+                in the mid-30s. The red average line confirms that the “prime” of an F1 driver's career occurs at just under
+                30 years of age. Interestingly, the long tail on the right shows that victories after 
+                the age of 35 become statistically rare.
+            </p>
+
+            <footer>
+                <strong>Data Source:</strong>
+                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020"
+                   target="_blank">
+                    Formula 1 World Championship 1950-2024 (Kaggle)</a>
             </footer>
         </article>
 
@@ -314,60 +355,45 @@ ggplot(data, aes(x = Year, y = population,
              ============================================ -->
         <article>
             <header>
-                <h2>5. [Title of Your Fifth Visualization]</h2>
+                <h2>6). The Qualifying Advantage</h2>
             </header>
 
             <h3>Context & Question</h3>
-            <p>[Your text here]</p>
+            <p>
+                In Formula 1, there is a famous cliché: <em>"The race is won on Saturday."</em> 
+                This refers to the Qualifying session which determines the starting order. 
+                <strong>How strong is the correlation between starting position and winning?</strong> 
+                This visualization investigates whether starting on "Pole Position" (1st) is a guarantee of victory.
+            </p>
 
             <h3>Design Decisions</h3>
-            <p>[Your text here]</p>
+            <p>
+                I used a <strong>Vertical Bar Chart</strong> with a X-axis representing starting positions on the grid and a
+                Y-axis representing the number of wins. I chose the <strong>Magma (reversed)</strong> color palette, which highlights high positions with light
+                colors and transitions to darker shades for lower values. This visual hierarchy immediately draws attention to the significant
+                difference between 1st place and the rest of the participants.
 
-            <!-- Add your visualization here (copy from examples above) -->
-            <div style="border: 2px dashed #ccc; padding: 40px; text-align: center;">
-                <p><strong>Add your visualization here</strong></p>
-                <p>Copy one of the templates above (Vega-Lite, Tableau, R/Python, or Image)</p>
-            </div>
-
-            <h3>Key Insights</h3>
-            <p>[Your text here]</p>
-
-            <footer>
-                <strong>Data Source:</strong> [Dataset information]
-            </footer>
-        </article>
-
-        <!-- ============================================
-             VISUALIZATION 6 - Copy a template above
-             This is the minimum. You can add more!
-             ============================================ -->
-        <article>
-            <header>
-                <h2>6. [Title of Your Sixth Visualization]</h2>
-            </header>
-
-            <h3>Context & Question</h3>
-            <p>[Your text here]</p>
-
-            <h3>Design Decisions</h3>
-            <p>[Your text here]</p>
-
-            <!-- Add your visualization here -->
-            <div style="border: 2px dashed #ccc; padding: 40px; text-align: center;">
-                <p><strong>Add your visualization here</strong></p>
-            </div>
+            </p>
+                    
+            <img src="startPos_vs_wins.png"
+                 alt="Bar chart showing correlation between starting grid position and number of wins">
+                 
 
             <h3>Key Insights</h3>
-            <p>[Your text here]</p>
+            <p>    
+                <strong>1. The Pole Dominance:</strong> The data reveals an overwhelming correlation. The first bar (Pole Position) is drastically taller than any other, confirming that starting 1st gives a massive statistical advantage.
+            </p>
+            <p>
+                <strong>2. Decline:</strong> There is a sharp exponential decay in win probability. By the time you reach Grid Position 3 or 4, the chances of winning plummet. Victories from outside the Top 10 are extreme statistical outliers.
+            </p>
 
             <footer>
-                <strong>Data Source:</strong> [Dataset information]
+                <strong>Data Source:</strong>
+                <a href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020"
+                   target="_blank">
+                    Formula 1 World Championship 1950-2024 (Kaggle)</a>
             </footer>
         </article>
-
-        <!-- ============================================
-             ADD MORE VISUALIZATIONS: Copy an <article> block above
-             ============================================ -->
 
         <!-- ============================================
              REFLECTION (Optional but recommended)
@@ -413,7 +439,7 @@ ggplot(data, aes(x = Year, y = population,
 
     </main>
 
-    <!-- ============================================
+        ============================================
          BEFORE SUBMITTING:
 
          ✓ All [placeholders] replaced with your content
@@ -427,7 +453,7 @@ ggplot(data, aes(x = Year, y = population,
          📋 Complete checklist in ASSIGNMENT.md
 
          DELETE THIS COMMENT BLOCK BEFORE SUBMITTING!
-         ============================================ -->
+         ============================================
 
 </body>
 </html>
