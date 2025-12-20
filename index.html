@@ -92,12 +92,14 @@
              ============================================ -->
         <article>
             <header>
-                <h2>Introduction</h2>
+                <h2><strong>Introduction</strong></h2>
             </header>
             <p>
-                This portfolio explores the 74-year history of Formula 1, analyzing how the sport has evolved from a niche European championship into a global spectacle.
-                Through six visualizations, we examine the geographical expansion of the circuits, the dynastic battles between the sport's greatest constructors, and the career trajectories of its legendary drivers.
-                The project demonstrates "how" they won - whether through dominance of the grid or longevity in age.
+                <em>This portfolio explores the <strong>74-year history of Formula 1</strong>,
+                analyzing how the sport has evolved from a niche European championship into a global spectacle.
+                Through six visualizations, we examine the geographical expansion of the circuits,
+                the dynastic battles between the sport's greatest constructors, and the career trajectories of its legendary drivers.
+                The project demonstrates "how" they won - whether through dominance of the grid or longevity in age.</em>
             </p>
         </article>
         
@@ -226,6 +228,11 @@
                 This allows for a fair comparison of dominance.
                 I applied the <strong>authentic team livery colors</strong> 
                 to make the eras instantly recognizable to fans.
+                <br><br>
+                <strong>Interactivity:</strong> To address the visual complexity of overlapping layers,
+                I implemented a <strong>"Click-to-Highlight"</strong> feature. 
+                Clicking on a team in the legend fades out the competitors,
+                allowing the user to isolate specific dynasties and trace their rise and fall without distraction.
 
             </p>
 
@@ -326,7 +333,7 @@
                 the statistical average age is actually much higher, which reinforces the distribution around experience rather than pure youth.
             </p>
 
-            <div id="vis5" ></div>
+            <div id="vis5"></div>
             <script type="text/javascript">
                  
                 vegaEmbed('#vis5', "f1_winners_age_distribution.json", { "actions": false, "render":"svg" })
@@ -395,46 +402,31 @@
             </footer>
         </article>
 
-        <!-- ============================================
-             REFLECTION (Optional but recommended)
-             ============================================ -->
         <article>
             <header>
                 <h2>Reflection</h2>
             </header>
+            
+            <h3>From just vizs costructing to storytelling</h3>
             <p>
-                [OPTIONAL: What did you learn through creating this portfolio?
-                How did your understanding of data visualization principles evolve?
-                What challenges did you face and how did you overcome them? What
-                would you do differently next time?]
+                Working on this portfolio changed my approach to visualization: I moved from simply displaying data to telling stories. 
+                I learned not to just display all available data, but to filter it for meaning
             </p>
+
+            <h3>Design and work with colors</h3>
+            <p>
+                I faced the challenge of combining different tools (interactive Altair and static Matplotlib) into a single style. 
+                I had to manually create “semantic color scales” by linking specific hex codes to drivers and teams
+                (e.g., red for Schumacher/Ferrari) to make the visualization intuitive for the viewer.
+                This taught me the importance of creating a unified design system before starting to write code.
+            </p>
+
+
         </article>
 
-        <!-- ============================================
-             AI USAGE DOCUMENTATION (If applicable)
-             See ASSIGNMENT.md for AI policy requirements
-             ============================================ -->
-        <article>
-            <header>
-                <h2>AI Usage Documentation</h2>
-            </header>
-            <p>
-                [IF YOU USED AI: Document what you used it for and include shared conversation links or PDFs.
-                Create an AI_Documentation folder in your ZIP with these files.
-                IF YOU DID NOT USE AI: Delete this entire AI Usage Documentation section.]
-            </p>
-            <p>
-                <small><em>Remember: All AI usage must be documented. Include links to shared conversations
-                or PDF exports in a folder called AI_Documentation in your ZIP archive.</em></small>
-            </p>
-        </article>
-
-        <!-- ============================================
-             FOOTER
-             ============================================ -->
         <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd;">
-            <p>Created by [Your Name] | Principles of Data Visualization | KSE Fall 2025</p>
-            <p>Last updated: [Date]</p>
+            <p>Created by Tymur Maksymovych | Principles of Data Visualization | KSE Fall 2025</p>
+            <p>Last updated: December 2025</p>
         </footer>
 
     </main>
